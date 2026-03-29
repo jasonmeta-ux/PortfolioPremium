@@ -1,1090 +1,130 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason Meta — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0d12;
-      --surface: rgba(17, 22, 30, 0.82);
-      --surface-2: #121823;
-      --surface-3: #182131;
-      --line: rgba(255,255,255,0.09);
-      --text: #eef2f7;
-      --muted: #96a0b2;
-      --accent: #9dfc61;
-      --accent-2: #5dd6ff;
-      --accent-3: #ff8b5e;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1160px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(93,214,255,.08), transparent 30%),
-        radial-gradient(circle at 10% 20%, rgba(157,252,97,.08), transparent 25%),
-        linear-gradient(180deg, #090c11 0%, #0c1017 100%);
-      color: var(--text);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(180deg, rgba(255,255,255,.45), transparent 80%);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      padding: .55rem .9rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.025);
-      color: var(--muted);
-      font-size: .82rem;
-      font-weight: 500;
-    }
-
-    .section {
-      padding: 88px 0;
-      position: relative;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 34px;
-    }
-
-    .section-kicker {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .74rem;
-      letter-spacing: .16em;
-      color: var(--accent);
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 3.7vw, 3.6rem);
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: -.04em;
-    }
-
-    .section-line {
-      height: 1px;
-      background: var(--line);
-      flex: 1;
-    }
-
-    .glass {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      background: rgba(8,12,18,.72);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 16px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: -.02em;
-    }
-
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(157,252,97,.18), rgba(93,214,255,.12));
-      border: 1px solid rgba(157,252,97,.22);
-      color: var(--accent);
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      list-style: none;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: .84rem;
-      font-weight: 600;
-      transition: color .2s ease;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 72px 0 40px;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.25fr .8fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-main {
-      padding: 34px;
-      border-radius: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      inset: auto -20% -45% 20%;
-      height: 240px;
-      background: radial-gradient(circle, rgba(157,252,97,.18), transparent 60%);
-      filter: blur(30px);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: .55rem .9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(157,252,97,.2);
-      background: rgba(157,252,97,.06);
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: .74rem;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.2rem, 10vw, 7rem);
-      line-height: .92;
-      letter-spacing: -.07em;
-      margin-bottom: 18px;
-    }
-
-    .hero-main h1 span { color: var(--accent); }
-
-    .lead {
-      font-size: clamp(1.03rem, 1.8vw, 1.2rem);
-      color: #ced6e3;
-      max-width: 740px;
-      margin-bottom: 24px;
-    }
-
-    .hero-copy {
-      color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 30px;
-      font-size: 1rem;
-    }
-
-    .hero-badges, .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 18px;
-    }
-
-    .stat-card, .focus-card, .quote-card, .info-card, .card, .project-card, .timeline-card, .goal-card {
-      border-radius: 22px;
-    }
-
-    .stat-card {
-      padding: 26px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .stat {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.025);
-      border: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.7rem;
-      letter-spacing: -.04em;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .stat span { color: var(--muted); font-size: .88rem; }
-
-    .focus-card, .quote-card, .card, .timeline-card, .goal-card {
-      padding: 24px;
-    }
-
-    .focus-card h3, .quote-card h3, .card h3, .timeline-card h3, .goal-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: -.03em;
-      margin-bottom: 10px;
-    }
-
-    .focus-card p, .quote-card p, .card p, .timeline-card p, .goal-card p { color: var(--muted); }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr .9fr;
-      gap: 18px;
-    }
-
-    .about-highlight {
-      padding: 28px;
-      border-radius: 24px;
-    }
-
-    .about-highlight h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: -.04em;
-      margin-bottom: 14px;
-    }
-
-    .about-highlight p {
-      color: var(--muted);
-      max-width: 800px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-card {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 20px;
-      align-items: start;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--accent), transparent);
-    }
-
-    .year {
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--accent);
-      font-size: .8rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding-left: 10px;
-    }
-
-    .timeline-meta {
-      color: var(--accent-2);
-      font-size: .9rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .projects {
-      display: grid;
-      gap: 22px;
-    }
-
-    .project-card {
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 24px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .22s ease, border-color .22s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(157,252,97,.18);
-    }
-
-    .project-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -45% 40%;
-      height: 160px;
-      background: radial-gradient(circle, rgba(93,214,255,.12), transparent 60%);
-      pointer-events: none;
-    }
-
-    .project-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.7rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.12);
-      letter-spacing: -.06em;
-      line-height: 1;
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-
-    .project-year {
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--accent);
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin-bottom: 6px;
-    }
-
-    .project-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.7rem;
-      letter-spacing: -.04em;
-    }
-
-    .project-summary {
-      color: #d5dcea;
-      margin-bottom: 18px;
-      max-width: 900px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .project-box {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.022);
-      padding: 14px;
-    }
-
-    .project-box h4 {
-      font-size: .83rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-
-    .project-box p, .project-box ul {
-      color: var(--muted);
-      font-size: .88rem;
-    }
-
-    .project-box ul {
-      padding-left: 18px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .skill-chip {
-      padding: .55rem .78rem;
-      border-radius: 12px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      color: #dbe3ef;
-      font-size: .86rem;
-      font-weight: 500;
-    }
-
-    .competence-grid, .goals-grid, .proud-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .meter {
-      margin-top: 14px;
-      display: grid;
-      gap: 6px;
-    }
-
-    .meter-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      font-size: .88rem;
-      color: var(--muted);
-    }
-
-    .bar {
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.05);
-      overflow: hidden;
-    }
-
-    .bar > span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .goal-card .status {
-      display: inline-flex;
-      margin-top: 14px;
-      padding: .45rem .72rem;
-      border-radius: 999px;
-      font-size: .78rem;
-      font-family: 'JetBrains Mono', monospace;
-      border: 1px solid rgba(157,252,97,.18);
-      background: rgba(157,252,97,.06);
-      color: var(--accent);
-    }
-
-    .future {
-      padding: 30px;
-      border-radius: 26px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .future h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      letter-spacing: -.05em;
-      margin-bottom: 12px;
-    }
-
-    .future p { color: var(--muted); }
-
-    .checklist {
-      display: grid;
-      gap: 12px;
-      list-style: none;
-    }
-
-    .checklist li {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      color: #d8dfeb;
-    }
-
-    footer {
-      padding: 32px 0 56px;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1040px) {
-      .hero-wrap, .cards-grid, .future { grid-template-columns: 1fr; }
-      .project-grid { grid-template-columns: repeat(2, 1fr); }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 760px) {
-      .container, .nav-inner { padding-left: 18px; padding-right: 18px; }
-      .nav-links { display: none; }
-      .section { padding: 66px 0; }
-      .hero { min-height: auto; padding-top: 36px; }
-      .hero-main, .stat-card, .focus-card, .quote-card, .card, .timeline-card, .goal-card, .project-card, .future, .about-highlight { padding: 20px; }
-      .two-col, .competence-grid, .goals-grid, .proud-grid, .skills-grid, .project-grid { grid-template-columns: 1fr; }
-      .timeline-card, .project-card { grid-template-columns: 1fr; }
-      .project-top { flex-direction: column; }
-      .section-header { flex-wrap: wrap; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+  <!-- ── NAVIGATION ── -->
   <nav>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-mark">JM</div>
-        <div>
-          <div style="font-size:.95rem;">Jason Meta</div>
-          <div style="font-size:.78rem;color:var(--muted);">Portfolio · VWO 6</div>
-        </div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#over">Over</a></li>
-        <li><a href="#route">Route</a></li>
-        <li><a href="#projecten">Projecten</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#ontwikkeling">Ontwikkeling</a></li>
-        <li><a href="#toekomst">Toekomst</a></li>
-      </ul>
-    </div>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html" class="active">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">E-bike</a></li>
+          <li><a href="project2.html">Wijndomein</a></li>
+          <li><a href="project3.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
   </nav>
 
   <main>
-    <section class="hero">
-      <div class="container hero-wrap">
-        <div class="hero-main glass reveal">
-          <div class="eyebrow">Portfolio 2025–2026 · Natuur & Technologie</div>
-          <h1>JASON <span>META</span></h1>
-          <p class="lead">VWO-leerling met een sterke interesse in technologie, engineering en slimme systemen.</p>
-          <p class="hero-copy">Wat mij drijft is niet alleen hoe technologie werkt, maar vooral hoe we het kunnen inzetten om echte problemen op te lossen. In mijn projecten combineer ik onderzoek, ontwerp en technische uitvoering — van 3D-printing en CAD tot IoT, mobiliteit en infrastructuur. Mijn doel is om deze interesse verder uit te bouwen aan een technische universiteit en later bij te dragen aan innovatieve oplossingen voor mobiliteit, duurzaamheid en digitale systemen.</p>
-          <div class="hero-badges">
-            <span class="pill">🔬 Onderzoekend</span>
-            <span class="pill">⚙️ Technisch</span>
-            <span class="pill">📡 IoT & data</span>
-            <span class="pill">🚗 Mobiliteit</span>
-            <span class="pill">🌍 Duurzame innovatie</span>
-          </div>
-        </div>
 
-        <div class="hero-side">
-          <div class="stat-card glass reveal">
-            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;letter-spacing:-.03em;">Profiel in één oogopslag</h3>
-            <div class="stats-grid">
-              <div class="stat"><strong>4</strong><span>grote projecten</span></div>
-              <div class="stat"><strong>3</strong><span>technische domeinen</span></div>
-              <div class="stat"><strong>100%</strong><span>eigen inzet</span></div>
-              <div class="stat"><strong>1</strong><span>duidelijke richting</span></div>
-            </div>
-          </div>
-          <div class="focus-card glass reveal">
-            <h3>Waar ik op focus</h3>
-            <p>Slimme systemen, mobiliteit, sensortechnologie, ontwerpdenken en technische innovatie met praktische impact.</p>
-          </div>
-          <div class="quote-card glass reveal">
-            <h3>Mijn motivatie</h3>
-            <p>Ik wil technologie niet alleen begrijpen, maar ook ontwerpen, testen en toepassen op vraagstukken die er echt toe doen.</p>
-          </div>
-        </div>
+    <!-- ── HERO ── -->
+    <div class="hero">
+      <p class="hero-tag">Student Portfolio</p>
+      <!-- Replace [Your Name] with your actual name -->
+      <h1>Hi, ik ben <span>Jason Meta</span></h1>
+      <!--
+        Replace the paragraph below with a short personal bio.
+        2–4 sentences: who you are, what you study, what drives you.
+        Example: "I'm a final-year [subject] student at [school/university],
+        passionate about [interests]. I believe in [value/vision]."
+      -->
+      <p class="hero-bio">
+        Ik ben een VWO-leerling met een sterke interesse in technologie, engineering en slimme systemen.
+        Ik zit nu in mijn eindexamnjaar op het Graaf Huyn College.
+      </p>
+    </div>
+
+    <!-- ── ABOUT ME ── -->
+    <section>
+      <h2>Over mij</h2>
+
+      <div class="card">
+        <!--
+          Add 1–2 paragraphs here giving a fuller picture of who you are as a student.
+          Think about: your background, your mindset, how you approach learning,
+          what motivates you, and what makes you unique.
+        -->
+        <p>
+          Wat mij drijft is niet alleen hoe technologie werkt, maar vooral hoe we het kunnen 
+          inzetten om echte problemen op te lossen. In mijn projecten combineer ik onderzoek, 
+          ontwerp en technische uitvoering.
+        </p>
+      </div>
+
+      <div class="card">
+        <p>
+          Mijn doel is om deze interesse verder uit te bouwen aan een 
+          technische universiteit en later bij te dragen aan innovatieve oplossingen voor 
+          mobiliteit, duurzaamheid en digitale systemen.
+        </p>
       </div>
     </section>
 
-    <section class="section" id="over">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">01 · Over mij</div>
-          <h2 class="section-title">Wie ik ben</h2>
-          <div class="section-line"></div>
-        </div>
+    <!-- ── FUTURE PLANS ── -->
+    <section>
+      <h2>De Toekomst</h2>
 
-        <div class="about-highlight glass reveal">
-          <h3>Nieuwsgierigheid, techniek en doorzetten</h3>
-          <p>Ik ben iemand die graag begrijpt hoe systemen in elkaar zitten en hoe ze slimmer kunnen worden gemaakt. Daarbij werk ik graag op het snijvlak van <strong>onderzoek</strong>, <strong>ontwerp</strong> en <strong>praktische uitvoering</strong>. Ik denk analytisch, maar kijk ook naar de mens en de context achter een probleem. Dat zie je terug in mijn projecten: ze zijn technisch, maar altijd gericht op een duidelijke toepassing of verbetering.</p>
-        </div>
-
-        <div class="cards-grid" style="margin-top:18px;">
-          <div class="card glass reveal">
-            <h3>Mijn kracht</h3>
-            <p>Ik ben sterk in het vertalen van een idee naar een concreet plan en vervolgens naar een werkend resultaat. Ik werk nauwkeurig, leer snel en zet door wanneer een technisch probleem meer dan één poging vraagt.</p>
-          </div>
-          <div class="card glass reveal">
-            <h3>Wat mij typeert</h3>
-            <p>Analytisch, creatief, zelfstandig en gemotiveerd. Ik vind het leuk om complexe vraagstukken op te splitsen en overzichtelijk op te lossen.</p>
-          </div>
-          <div class="card glass reveal">
-            <h3>Waar ik naartoe wil</h3>
-            <p>Mijn volgende stap is een technische studie aan een universiteit, met ruimte voor engineering, innovatie en toekomstgerichte systemen.</p>
-          </div>
-        </div>
+      <div class="card">
+        <div class="card-meta">Korte termijn</div>
+        <h3>Aan de TU/e studeren</h3>
+        <p>
+          Na het behalen van mijn vwo-diploma ben ik van plan om te gaan studeren aan de 
+          Technische Universiteit Eindhoven. Ik heb mij aangemeld voor de studies 
+          Mechanical Engineering en Automotive Technology, omdat deze goed aansluiten 
+          bij mijn interesse in techniek en innovatie.
+        </p>
       </div>
+
+      <div class="card">
+        <div class="card-meta">Lange termijn</div>
+        <h3>Zinvolle Technologie</h3>
+        <p>
+          Op de lange termijn wil ik meewerken aan technologie die niet alleen slim is, maar ook echt waarde toevoegt: veiliger, duurzamer en beter afgestemd op de toekomst. Ik wil bijdragen aan oplossingen die impact hebben en aansluiten bij de uitdagingen van morgen.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Wat ik nog wil leren</div>
+        <h3>Programmeren</h3>
+        <p>
+          Mijn doel is om een technische studie te volgen waarin ik mijn interesse in 
+          engineering, slimme systemen en innovatie verder kan verdiepen. Ik 
+          voel mij vooral aangetrokken tot richtingen waarin techniek direct wordt toegepast op vraagstukken rond mobiliteit, infrastructuur, ontwerp of digitale systemen.
+        </p>
+      </div>
+
     </section>
 
-    <section class="section" id="route">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">02 · Route</div>
-          <h2 class="section-title">Mijn leerweg</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-card glass reveal">
-            <div class="year">2020 – heden</div>
-            <div>
-              <h3>VWO · Natuur &amp; Technologie</h3>
-              <div class="timeline-meta">VO-school · Nederland</div>
-              <p>Profiel Natuur &amp; Technologie met vakken en projecten die mijn interesse in techniek, ontwerp en innovatie versterken. Binnen dit profiel heb ik actief gewerkt aan onderzoeks- en ontwerpvraagstukken waarin theorie en praktijk samenkomen.</p>
-            </div>
-          </div>
-
-          <div class="timeline-card glass reveal">
-            <div class="year">VWO 4 · 2023–2024</div>
-            <div>
-              <h3>Eerste grote maakervaring</h3>
-              <div class="timeline-meta">3D-geprint schaakspel</div>
-              <p>In deze fase leerde ik hoe een digitaal ontwerp via CAD vertaald wordt naar een tastbaar product. Het project gaf mij veel inzicht in vormgeving, maakbaarheid en iteratief verbeteren.</p>
-            </div>
-          </div>
-
-          <div class="timeline-card glass reveal">
-            <div class="year">VWO 5 · 2024–2025</div>
-            <div>
-              <h3>Verbreding naar innovatie en IoT</h3>
-              <div class="timeline-meta">E-bike concept &amp; LoRa-monitoring</div>
-              <p>Mijn focus verschoof naar grotere maatschappelijke en technische vraagstukken: mobiliteit, veiligheid, sensoren, datacommunicatie en praktische toepasbaarheid in de echte wereld.</p>
-            </div>
-          </div>
-
-          <div class="timeline-card glass reveal">
-            <div class="year">VWO 6 · 2026</div>
-            <div>
-              <h3>Onderzoek op grotere schaal</h3>
-              <div class="timeline-meta">Meesterproef · Snelwegen van de Toekomst</div>
-              <p>In mijn eindproject onderzocht ik hoe Nederlandse snelwegen veiliger, efficiënter en toekomstbestendiger kunnen worden. Daarbij combineerde ik analyse, systeemdenken en een toekomstgerichte visie op mobiliteit.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projecten">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">03 · Projecten</div>
-          <h2 class="section-title">Werk dat laat zien wat ik kan</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="projects">
-          <article class="project-card glass reveal">
-            <div class="project-num">01</div>
-            <div>
-              <div class="project-top">
-                <div>
-                  <div class="project-year">VWO 4 · 2023</div>
-                  <h3 class="project-title">3D-geprint schaakspel</h3>
-                </div>
-                <div class="tag-list">
-                  <span class="pill">CAD</span>
-                  <span class="pill">3D-printing</span>
-                  <span class="pill">Productontwerp</span>
-                </div>
-              </div>
-              <p class="project-summary">Een volledig schaakbord met alle schaakstukken, digitaal ontworpen en vervolgens fysiek geproduceerd. Dit project vormde mijn eerste serieuze ervaring met ontwerpen voor maakbaarheid.</p>
-              <div class="project-grid">
-                <div class="project-box">
-                  <h4>Vraagstuk</h4>
-                  <p>Hoe vertaal je een digitaal ontwerp naar een functionerend fysiek product dat precies genoeg, stevig en printbaar is?</p>
-                </div>
-                <div class="project-box">
-                  <h4>Aanpak</h4>
-                  <p>Ik ontwierp elk schaakstuk in CAD, testte vormen en printinstellingen en werkte het ontwerp iteratief bij.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Resultaat</h4>
-                  <p>Een complete, zelfontworpen schaakset die laat zien dat ik een idee zelfstandig kan uitwerken van concept tot eindproduct.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Wat ik leerde</h4>
-                  <ul>
-                    <li>CAD-modelleren</li>
-                    <li>Printbaarheid optimaliseren</li>
-                    <li>Precisie en iteratie</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card glass reveal">
-            <div class="project-num">02</div>
-            <div>
-              <div class="project-top">
-                <div>
-                  <div class="project-year">VWO 5 · 2024</div>
-                  <h3 class="project-title">E-bike: gezonder &amp; veiliger</h3>
-                </div>
-                <div class="tag-list">
-                  <span class="pill">Mobiliteit</span>
-                  <span class="pill">Innovatie</span>
-                  <span class="pill">Veiligheid</span>
-                </div>
-              </div>
-              <p class="project-summary">Een conceptproject rond de vraag hoe e-bikes veiliger en gezonder kunnen worden voor gebruikers. Hierbij stond niet één product centraal, maar een bredere ontwerpvisie op mens, gedrag en techniek.</p>
-              <div class="project-grid">
-                <div class="project-box">
-                  <h4>Vraagstuk</h4>
-                  <p>Welke risico’s en kansen bestaan er rond het gebruik van e-bikes, en hoe kun je daar technische oplossingen voor bedenken?</p>
-                </div>
-                <div class="project-box">
-                  <h4>Aanpak</h4>
-                  <p>Ik onderzocht bestaande problemen en werkte ideeën uit voor rijhulpsystemen, ergonomische verbeteringen en actieve veiligheidsfuncties.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Resultaat</h4>
-                  <p>Een reeks concrete innovatie-ideeën die laten zien dat ik techniek kan koppelen aan gebruikersveiligheid en maatschappelijke relevantie.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Wat ik leerde</h4>
-                  <ul>
-                    <li>Ontwerpen vanuit de gebruiker</li>
-                    <li>Risico’s analyseren</li>
-                    <li>Technische concepten onderbouwen</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card glass reveal">
-            <div class="project-num">03</div>
-            <div>
-              <div class="project-top">
-                <div>
-                  <div class="project-year">VWO 5 · 2025</div>
-                  <h3 class="project-title">LoRa-monitorsysteem voor een wijngaard</h3>
-                </div>
-                <div class="tag-list">
-                  <span class="pill">LoRa</span>
-                  <span class="pill">IoT</span>
-                  <span class="pill">Sensortechnologie</span>
-                </div>
-              </div>
-              <p class="project-summary">Een technisch IoT-project waarbij ik een LoRa-naar-LoRa communicatiesysteem ontwierp om realtime omgevingsdata in een wijngaard te meten en door te sturen.</p>
-              <div class="project-grid">
-                <div class="project-box">
-                  <h4>Vraagstuk</h4>
-                  <p>Hoe kun je omgevingsdata over vocht, temperatuur en andere omstandigheden betrouwbaar monitoren op een locatie waar bereik en afstand een rol spelen?</p>
-                </div>
-                <div class="project-box">
-                  <h4>Aanpak</h4>
-                  <p>Ik zette zowel de hardware als de softwarelogica op, koppelde sensoren aan LoRa-communicatie en testte het systeem op functionaliteit en bruikbaarheid.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Resultaat</h4>
-                  <p>Een werkend monitorsysteem dat relevante gegevens realtime doorstuurt en laat zien hoe data boeren kunnen helpen sneller te reageren.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Wat ik leerde</h4>
-                  <ul>
-                    <li>Systeemdenken</li>
-                    <li>Hardware + software koppelen</li>
-                    <li>IoT praktisch toepassen</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card glass reveal">
-            <div class="project-num">04</div>
-            <div>
-              <div class="project-top">
-                <div>
-                  <div class="project-year">VWO 6 · 2026</div>
-                  <h3 class="project-title">Meesterproef: Snelwegen van de Toekomst</h3>
-                </div>
-                <div class="tag-list">
-                  <span class="pill">Onderzoek</span>
-                  <span class="pill">Infrastructuur</span>
-                  <span class="pill">Toekomstvisie</span>
-                </div>
-              </div>
-              <p class="project-summary">Een onderzoeksproject over hoe Nederlandse snelwegen veiliger, efficiënter en toekomstbestendiger kunnen worden. Hierbij keek ik naar zowel verkeerssystemen als fysieke infrastructuur.</p>
-              <div class="project-grid">
-                <div class="project-box">
-                  <h4>Vraagstuk</h4>
-                  <p>Hoe moeten snelwegen zich ontwikkelen in een toekomst met slimme mobiliteit, veranderende verkeersstromen en nieuwe eisen aan duurzaamheid?</p>
-                </div>
-                <div class="project-box">
-                  <h4>Aanpak</h4>
-                  <p>Ik onderzocht de huidige situatie, analyseerde kansen voor verbetering en werkte voorstellen uit met aandacht voor veiligheid, efficiëntie en innovatie.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Resultaat</h4>
-                  <p>Een onderbouwde toekomstvisie met concrete ideeën voor wegbeheer, infrastructuur en de rol van nieuwe technologie in mobiliteit.</p>
-                </div>
-                <div class="project-box">
-                  <h4>Wat ik leerde</h4>
-                  <ul>
-                    <li>Grote systemen analyseren</li>
-                    <li>Onderbouwen met data</li>
-                    <li>Technische visie helder presenteren</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">04 · Skills</div>
-          <h2 class="section-title">Technische en persoonlijke vaardigheden</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="skills-grid">
-          <div class="card glass reveal">
-            <h3>Technische tools</h3>
-            <p>Vaardigheden en methodes die ik in projecten inzet om ideeën te ontwerpen, testen en realiseren.</p>
-            <div class="skill-list">
-              <span class="skill-chip">CAD-ontwerp</span>
-              <span class="skill-chip">3D-printing</span>
-              <span class="skill-chip">Prototypebouw</span>
-              <span class="skill-chip">Sensoren</span>
-              <span class="skill-chip">LoRa</span>
-              <span class="skill-chip">Datamonitoring</span>
-            </div>
-          </div>
-          <div class="card glass reveal">
-            <h3>Denkvaardigheden</h3>
-            <p>Ik werk graag gestructureerd en onderbouwd, met oog voor zowel techniek als de toepassing ervan.</p>
-            <div class="skill-list">
-              <span class="skill-chip">Onderzoek doen</span>
-              <span class="skill-chip">Probleemanalyse</span>
-              <span class="skill-chip">Systeemdenken</span>
-              <span class="skill-chip">Conceptontwikkeling</span>
-              <span class="skill-chip">Kritisch denken</span>
-            </div>
-          </div>
-          <div class="card glass reveal">
-            <h3>Werkhouding</h3>
-            <p>Mijn manier van werken is net zo belangrijk als de techniek: betrouwbaar, zelfstandig en gericht op resultaat.</p>
-            <div class="skill-list">
-              <span class="skill-chip">Doorzettingsvermogen</span>
-              <span class="skill-chip">Zelfstandig werken</span>
-              <span class="skill-chip">Samenwerken</span>
-              <span class="skill-chip">Presenteren</span>
-              <span class="skill-chip">Plannen</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="competence-grid" style="margin-top:18px;">
-          <div class="card glass reveal">
-            <h3>Competentiemonitor</h3>
-            <p>Een overzicht van vaardigheden die ik de afgelopen jaren bewust heb ontwikkeld.</p>
-            <div class="meter"><div class="meter-top"><span>Onderzoeken</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
-            <div class="meter"><div class="meter-top"><span>Ontwerpen</span><span>82%</span></div><div class="bar"><span style="width:82%"></span></div></div>
-            <div class="meter"><div class="meter-top"><span>Technisch maken</span><span>80%</span></div><div class="bar"><span style="width:80%"></span></div></div>
-            <div class="meter"><div class="meter-top"><span>Presenteren</span><span>74%</span></div><div class="bar"><span style="width:74%"></span></div></div>
-          </div>
-          <div class="card glass reveal">
-            <h3>Bètawerelden die bij mij passen</h3>
-            <p>Mijn interesses liggen vooral op plekken waar techniek, ontwerp en impact samenkomen.</p>
-            <div class="skill-list" style="margin-top:18px;">
-              <span class="skill-chip">⚙️ Ontwerpen</span>
-              <span class="skill-chip">💻 Digitale wereld</span>
-              <span class="skill-chip">🌱 Natuur & milieu</span>
-              <span class="skill-chip">🚗 Mobiliteit</span>
-              <span class="skill-chip">🔬 Wetenschap</span>
-              <span class="skill-chip">🏗️ Techniek & fabricage</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ontwikkeling">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">05 · Ontwikkeling</div>
-          <h2 class="section-title">Persoonlijk ontwikkelingsplan</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="goals-grid">
-          <div class="goal-card glass reveal">
-            <h3>Dieper in IoT en programmeren</h3>
-            <p>Ik wil mijn kennis van embedded systems, sensoren en programmeerlogica verder verdiepen, zodat ik technische systemen steeds zelfstandiger kan bouwen.</p>
-            <span class="status">In uitvoering</span>
-          </div>
-          <div class="goal-card glass reveal">
-            <h3>Complexe techniek helder uitleggen</h3>
-            <p>Ik wil sterker worden in het presenteren van technische informatie aan mensen zonder technische achtergrond, zodat mijn ideeën overtuigender overkomen.</p>
-            <span class="status">In uitvoering</span>
-          </div>
-          <div class="goal-card glass reveal">
-            <h3>Keuzes nog beter onderbouwen</h3>
-            <p>Ik wil sterker worden in het gebruik van data, bronnen en argumentatie om ontwerpkeuzes en conclusies scherper te kunnen verantwoorden.</p>
-            <span class="status">In uitvoering</span>
-          </div>
-          <div class="goal-card glass reveal">
-            <h3>Praktijkervaring opdoen</h3>
-            <p>Een volgende stap is om meer te zien van de praktijk bij een technologiebedrijf, universiteit of ingenieursbureau en daaruit te leren hoe echte projecten verlopen.</p>
-            <span class="status">Gepland</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="trots">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">06 · Resultaten</div>
-          <h2 class="section-title">Waar ik trots op ben</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="proud-grid">
-          <div class="card glass reveal">
-            <h3>Van idee naar werkend systeem</h3>
-            <p>Het LoRa-project liet mij zien dat ik niet alleen een technisch concept kan bedenken, maar ook een functionerend systeem kan opzetten dat echte data verwerkt en doorstuurt.</p>
-          </div>
-          <div class="card glass reveal">
-            <h3>Zelfstandig een groot project afronden</h3>
-            <p>Met mijn meesterproef heb ik bewezen dat ik een omvangrijk onderwerp kan onderzoeken, structureren en omzetten in een overtuigend eindresultaat.</p>
-          </div>
-          <div class="card glass reveal">
-            <h3>Ontwerpen én maken combineren</h3>
-            <p>Mijn 3D-geprinte schaakset blijft voor mij een sterk bewijs dat ik een idee niet alleen kan bedenken, maar ook nauwkeurig kan uitvoeren.</p>
-          </div>
-          <div class="card glass reveal">
-            <h3>Techniek koppelen aan impact</h3>
-            <p>In zowel het e-bikeproject als het wijngaardproject ging het niet alleen om techniek, maar om hoe technologie daadwerkelijk iets kan verbeteren in de praktijk.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="toekomst">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-kicker">07 · Toekomst</div>
-          <h2 class="section-title">Mijn volgende stap</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="future glass reveal">
-          <div>
-            <h3>Richting technische universiteit</h3>
-            <p>Mijn doel is om na het VWO een technische studie te volgen waarin ik mijn interesse in engineering, slimme systemen en innovatie verder kan verdiepen. Ik voel mij vooral aangetrokken tot richtingen waarin techniek direct wordt toegepast op vraagstukken rond mobiliteit, infrastructuur, ontwerp of digitale systemen.</p>
-            <p style="margin-top:12px;">Op de lange termijn wil ik meewerken aan technologie die niet alleen slim is, maar ook echt waarde toevoegt: veiliger, duurzamer en beter afgestemd op de toekomst.</p>
-          </div>
-          <ul class="checklist">
-            <li>Technische kennis verder verdiepen</li>
-            <li>Meer praktijkervaring opdoen</li>
-            <li>Blijven bouwen aan onderzoek + ontwerp</li>
-            <li>Bijdragen aan innovatie met impact</li>
-          </ul>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2026 Jason Meta — Portfolio VWO 6 · Natuur &amp; Technologie</p>
-      <p style="margin-top:8px;font-size:.9rem;">Onderzoek · Ontwerp · Techniek · Toekomst</p>
-    </div>
+    <p>© 2026 Jason Meta</p>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min(i * 0.03, 0.18)}s`;
-      observer.observe(el);
+    // Mobile hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
   </script>
+
 </body>
 </html>

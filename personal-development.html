@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personlijke groei — Jason Meta</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .dev-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .dev-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .dev-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .dev-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .dev-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.75;
+      flex: 1;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+    .status-active  { background: #1a3d27; color: var(--accent); }
+    .status-planned { background: #1e3050; color: var(--text-secondary); }
+    @media (max-width: 600px) { .dev-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html" class="active">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">E-bike</a></li>
+          <li><a href="project2.html">Wijndomein</a></li>
+          <li><a href="project3.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+      <h1>Persoonlijk ontwikkelingsplan</h1>
+      <p>Hoe ik mezelf verder ontwikkel — de doelen, gewoontes en inzichten die mij vormen.</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <!-- ── DEVELOPMENT PLAN ── -->
+    <section>
+      <h2>Ontwikkelingsplan</h2>
+      <div class="dev-grid">
+
+        <div class="dev-card">
+          <h3>Dieper in IoT en programmeren</h3>
+          <p>Ik wil mijn kennis van embedded systems, sensoren en programmeerlogica verder verdiepen, zodat ik technische systemen steeds zelfstandiger kan bouwen.</p>
+          <span class="status-badge status-active">In uitvoering</span>
+        </div>
+
+        <div class="dev-card">
+          <h3>Complexe techniek helder uitleggen</h3>
+          <p>Ik wil sterker worden in het presenteren van technische informatie aan mensen zonder technische achtergrond, zodat mijn ideeën overtuigender overkomen.</p>
+          <span class="status-badge status-active">In uitvoering</span>
+        </div>
+
+        <div class="dev-card">
+          <h3>Keuzes nog beter onderbouwen</h3>
+          <p>Ik wil sterker worden in het gebruik van data, bronnen en argumentatie om ontwerpkeuzes en conclusies scherper te kunnen verantwoorden.</p>
+          <span class="status-badge status-active">In uitvoering</span>
+        </div>
+
+        <div class="dev-card">
+          <h3>Praktijkervaring opdoen</h3>
+          <p>Een volgende stap is om meer te zien van de praktijk bij een technologiebedrijf, universiteit of ingenieursbureau en daaruit te leren hoe echte projecten verlopen.</p>
+          <span class="status-badge status-planned">Gepland</span>
+        </div>
+
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <p>© 2026 Jason Meta</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

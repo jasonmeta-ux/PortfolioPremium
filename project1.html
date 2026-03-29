@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-bike: gezonder & veiliger — Jason Meta</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html" class="active">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">E-bike</a></li>
+          <li><a href="project2.html">Wijndomein</a></li>
+          <li><a href="project3.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+      <!-- Replace with your actual project title -->
+      <h1>E-bike</h1>
+      <p>Gezonder & veiliger</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <!-- Back link -->
+    <p style="margin-bottom: 2rem;">
+      <a href="projects.html" style="color: var(--accent); text-decoration: none; font-size: 0.875rem;">
+        ← Terug naar alle projecten
+      </a>
+    </p>
+
+    <!-- ── PROJECT DESCRIPTION ── -->
+    <div class="card" style="margin-bottom: 3rem;">
+      <div class="card-meta">Vwo 5, 2024</div>
+      <p>
+        Een conceptproject rond de vraag hoe e-bikes veiliger en gezonder kunnen worden 
+        voor gebruikers. Hierbij stond niet één product centraal, maar een bredere 
+        ontwerpvisie op mens, gedrag en techniek.
+      </p>
+    </div>
+
+    <!--
+      ════════════════════════════════════════════
+      HOW TO ADD YOUR PDFs:
+        1. Place your PDF files in the /pdfs/ folder.
+        2. Update the src= and href= values below to match your file names.
+        3. Update each title and description.
+      ════════════════════════════════════════════
+    -->
+
+    <!-- ── PDF 1 ── -->
+    <div class="pdf-container">
+      <div class="pdf-header">
+        <div class="pdf-header-text">
+          <h3>MUMC +</h3>
+          <p>Powerpoint</p>
+        </div>
+        <a class="pdf-open-btn" href="pdfs/fiets1.pdf" target="_blank">Open PDF ↗</a>
+      </div>
+      <iframe
+        class="pdf-embed"
+        src="pdfs/fiets1.pdf"
+        title="Project 1 — Document 1">
+        <p>Your browser does not support embedded PDFs.
+          <a href="pdfs/fiets1.pdf" target="_blank">Click here to open the PDF.</a>
+        </p>
+      </iframe>
+    </div>
+
+    <!-- ── PDF 2 ── -->
+    <div class="pdf-container">
+      <div class="pdf-header">
+        <div class="pdf-header-text">
+          <h3>E-bike challenge</h3>
+          <p>Eind document</p>
+        </div>
+        <a class="pdf-open-btn" href="pdfs/fiets2.pdf" target="_blank">Open PDF ↗</a>
+      </div>
+      <iframe
+        class="pdf-embed"
+        src="pdfs/fiets2.pdf"
+        title="Project 1 — Document 2">
+        <p>Your browser does not support embedded PDFs.
+          <a href="pdfs/fiets2.pdf" target="_blank">Click here to open the PDF.</a>
+        </p>
+      </iframe>
+    </div>
+
+    <!-- ── PDF 3 ── -->
+    <div class="pdf-container">
+      <div class="pdf-header">
+        <div class="pdf-header-text">
+          <h3>E-bike challenge</h3>
+          <p>Kort samengevat</p>
+        </div>
+        <a class="pdf-open-btn" href="pdfs/fiets3.pdf" target="_blank">Open PDF ↗</a>
+      </div>
+      <iframe
+        class="pdf-embed"
+        src="pdfs/fiets3.pdf"
+        title="Project 1 — Document 3">
+        <p>Your browser does not support embedded PDFs.
+          <a href="pdfs/fiets3.pdf" target="_blank">Click here to open the PDF.</a>
+        </p>
+      </iframe>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Jason Meta</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>
