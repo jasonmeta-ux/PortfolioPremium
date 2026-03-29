@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 1: 3D-geprinte schaakset — Jason Meta</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .feedback-section {
+      margin-top: 2rem;
+    }
+    .feedback-block {
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .feedback-block.tops {
+      background: rgba(126, 219, 160, 0.07);
+      border: 1px solid rgba(126, 219, 160, 0.25);
+    }
+    .feedback-block.tips {
+      background: rgba(255, 180, 80, 0.07);
+      border: 1px solid rgba(255, 180, 80, 0.2);
+    }
+    .feedback-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feedback-heading.tops {
+      color: var(--accent);
+    }
+    .feedback-heading.tips {
+      color: #f5a623;
+    }
+    .feedback-item {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .feedback-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .feedback-item-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+    .feedback-item-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .project-meta-bar {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .meta-tag {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: var(--accent);
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">Schaakset</a></li>
+          <li><a href="project2.html">E-bike</a></li>
+          <li><a href="project3.html">Wijndomein</a></li>
+          <li><a href="project4.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <a href="projects.html" class="back-link">← Terug naar projecten</a>
+
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+      <h1>3D-geprinte schaakset</h1>
+      <p>Van digitaal CAD-ontwerp naar fysiek eindproduct</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <div class="project-meta-bar">
+      <span class="meta-tag">VWO 4 · 2023</span>
+      <span class="meta-tag">CAD · 3D-printen · Maakproject</span>
+    </div>
+
+    <!-- ── PROJECT DESCRIPTION ── -->
+    <div class="card">
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75;">
+        In dit project heb ik een volledig schaakspel ontworpen met CAD-software en vervolgens 
+        3D-geprint. Alle schaakstukken zijn zelfstandig gemodelleerd, iteratief verbeterd en 
+        uiteindelijk geprint tot een functioneel, bruikbaar eindproduct. Het project laat het 
+        volledige traject zien van idee tot realisatie.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ── FEEDBACK ── -->
+    <div class="feedback-section">
+
+      <div class="feedback-block tops">
+        <div class="feedback-heading tops">✅ Tops</div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Sterke vertaalslag van idee naar product</div>
+          <div class="feedback-item-desc">
+            Ik heb het volledige proces doorlopen van digitaal ontwerp naar een fysiek eindproduct. 
+            Dit laat zien dat ik een idee zelfstandig kan uitwerken en realiseren.
+          </div>
+        </div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Iteratief gewerkt</div>
+          <div class="feedback-item-desc">
+            Tijdens het ontwerpen heb ik meerdere versies getest en verbeterd. Hierdoor werd 
+            het eindresultaat steeds nauwkeuriger en beter printbaar.
+          </div>
+        </div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Goede beheersing van CAD</div>
+          <div class="feedback-item-desc">
+            Ik heb alle schaakstukken zelf ontworpen in CAD, wat laat zien dat ik complexe 
+            vormen kan modelleren en technisch kan nadenken.
+          </div>
+        </div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Functioneel eindresultaat</div>
+          <div class="feedback-item-desc">
+            De schaakset is niet alleen visueel goed gelukt, maar ook bruikbaar en stevig.
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback-block tips">
+        <div class="feedback-heading tips">🔧 Tips</div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Meer aandacht voor maatvoering en toleranties</div>
+          <div class="feedback-item-desc">
+            Sommige onderdelen hadden nog preciezer gekund, zodat alles perfect past en 
+            nog consistenter geprint wordt.
+          </div>
+        </div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Efficiënter printproces</div>
+          <div class="feedback-item-desc">
+            Ik kan in de toekomst beter nadenken over printtijd en materiaalgebruik, 
+            bijvoorbeeld door ontwerpen te optimaliseren.
+          </div>
+        </div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Meer testen vooraf</div>
+          <div class="feedback-item-desc">
+            Door eerder kleine testprints te doen, kan ik fouten sneller ontdekken en tijd besparen.
+          </div>
+        </div>
+
+        <div class="feedback-item">
+          <div class="feedback-item-title">Complexere ontwerpen proberen</div>
+          <div class="feedback-item-desc">
+            Een volgende stap is om moeilijkere of meer gedetailleerde vormen te ontwerpen 
+            om mezelf verder uit te dagen.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Jason Meta</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

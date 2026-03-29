@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Middelbare School — Jason Meta</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .cv-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+    .cv-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .cv-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .cv-label {
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-weight: 600;
+      min-width: 148px;
+      flex-shrink: 0;
+    }
+    .cv-value {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+    .cv-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .cv-value a:hover { text-decoration: underline; }
+
+    /* bullet list inside card */
+    .cv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .cv-list li {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .cv-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* tag-style pills for skills/languages */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tag .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html" class="active">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">Schaakset</a></li>
+          <li><a href="project2.html">E-bike</a></li>
+          <li><a href="project3.html">Wijndomein</a></li>
+          <li><a href="project4.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
+    </ul>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+      <h1>Curriculum Vitae</h1>
+      <p>Een overzicht van mijn opleiding, werkervaring, vaardigheden en talen.</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <!-- ── PERSONAL INFO ── -->
+    <section>
+      <h2>Persoonlijke gegevens</h2>
+      <div class="card">
+        <div class="cv-section">
+          <div class="cv-row">
+            <span class="cv-label">Naam</span>
+            <span class="cv-value">Jason Meta</span>
+          </div>
+          <div class="cv-row">
+            <span class="cv-label">Geboortedatum</span>
+            <span class="cv-value">29-05-2008</span>
+          </div>
+          <div class="cv-row">
+            <span class="cv-label">Woonplaats</span>
+            <span class="cv-value">Puth</span>
+          </div>
+          <div class="cv-row">
+            <span class="cv-label">E-mail</span>
+            <span class="cv-value"><a href="mailto:jasonmeta02@gmail.com">jasonmeta02@gmail.com</a></span>
+          </div>
+          <div class="cv-row">
+            <span class="cv-label">Telefoonnummer</span>
+            <span class="cv-value"><a href="tel:+31638709776">+31 6 38709776</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROFILE ── -->
+    <section>
+      <h2>Profiel</h2>
+      <div class="card">
+        <p>
+          Ik ben een gemotiveerde vwo 6 leerling met het profiel Natuur &amp; Techniek.
+          Ik ben een doorzetter en geef niet snel op, ook niet wanneer iets lastig is.
+          Daarnaast blijf ik rustig in stressvolle situaties en werk ik doelgericht naar mijn doelen toe.
+          Ik help graag anderen en haal voldoening uit het uitleggen van moeilijke stof.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section>
+      <h2>Opleiding</h2>
+      <div class="card">
+        <div class="card-meta">Voortgezet onderwijs</div>
+        <h3>VWO — Natuur &amp; Techniek</h3>
+        <p>Graaf Huyn College, Geleen</p>
+      </div>
+    </section>
+
+    <!-- ── WORK EXPERIENCE ── -->
+    <section>
+      <h2>Werkervaring</h2>
+      <div class="card">
+        <div class="card-meta">VWO 4 · VWO 5 · begin VWO 6</div>
+        <h3>Bijlesgever — Leerlingen Helpen Leerlingen</h3>
+        <ul class="cv-list" style="margin-top:0.75rem">
+          <li>Geven van bijles in scheikunde, wiskunde en natuurkunde aan medeleerlingen</li>
+          <li>Uitleggen van moeilijke onderwerpen op een duidelijke en rustige manier</li>
+          <li>Leerlingen helpen bij het voorbereiden van toetsen</li>
+          <li>Geduldig inspelen op verschillende leerstijlen</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section>
+      <h2>Vaardigheden</h2>
+      <div class="card">
+        <div class="tag-row">
+          <div class="tag"><span class="tag-dot"></span>Doorzettingsvermogen</div>
+          <div class="tag"><span class="tag-dot"></span>Rustig blijven onder druk</div>
+          <div class="tag"><span class="tag-dot"></span>Goed uitleg kunnen geven</div>
+          <div class="tag"><span class="tag-dot"></span>Verantwoordelijk en zelfstandig</div>
+          <div class="tag"><span class="tag-dot"></span>Analytisch denken</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LANGUAGES ── -->
+    <section>
+      <h2>Talen</h2>
+      <div class="card">
+        <div class="tag-row">
+          <div class="tag"><span class="tag-dot"></span>Nederlands — vloeiend</div>
+          <div class="tag"><span class="tag-dot"></span>Engels — vloeiend</div>
+          <div class="tag"><span class="tag-dot"></span>Albanees — vloeiend</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Jason Meta</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

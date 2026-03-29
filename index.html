@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason Meta — Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html" class="active">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">Schaakset</a></li>
+          <li><a href="project2.html">E-bike</a></li>
+          <li><a href="project3.html">Wijndomein</a></li>
+          <li><a href="project4.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <div class="hero">
+      <p class="hero-tag">Student Portfolio</p>
+      <!-- Replace [Your Name] with your actual name -->
+      <h1>Hi, ik ben <span>Jason Meta</span></h1>
+      <!--
+        Replace the paragraph below with a short personal bio.
+        2–4 sentences: who you are, what you study, what drives you.
+        Example: "I'm a final-year [subject] student at [school/university],
+        passionate about [interests]. I believe in [value/vision]."
+      -->
+      <p class="hero-bio">
+        Ik ben een VWO-leerling met een sterke interesse in technologie, engineering en slimme systemen.
+        Ik zit nu in mijn eindexamnjaar op het Graaf Huyn College.
+      </p>
+    </div>
+
+    <!-- ── ABOUT ME ── -->
+    <section>
+      <h2>Over mij</h2>
+
+      <div class="card">
+        <!--
+          Add 1–2 paragraphs here giving a fuller picture of who you are as a student.
+          Think about: your background, your mindset, how you approach learning,
+          what motivates you, and what makes you unique.
+        -->
+        <p>
+          Wat mij drijft is niet alleen hoe technologie werkt, maar vooral hoe we het kunnen 
+          inzetten om echte problemen op te lossen. In mijn projecten combineer ik onderzoek, 
+          ontwerp en technische uitvoering.
+        </p>
+      </div>
+
+      <div class="card">
+        <p>
+          Mijn doel is om deze interesse verder uit te bouwen aan een 
+          technische universiteit en later bij te dragen aan innovatieve oplossingen voor 
+          mobiliteit, duurzaamheid en digitale systemen.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── FUTURE PLANS ── -->
+    <section>
+      <h2>De Toekomst</h2>
+
+      <div class="card">
+        <div class="card-meta">Korte termijn</div>
+        <h3>Aan de TU/e studeren</h3>
+        <p>
+          Na het behalen van mijn vwo-diploma ben ik van plan om te gaan studeren aan de 
+          Technische Universiteit Eindhoven. Ik heb mij aangemeld voor de studies 
+          Mechanical Engineering en Automotive Technology, omdat deze goed aansluiten 
+          bij mijn interesse in techniek en innovatie.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Lange termijn</div>
+        <h3>Zinvolle Technologie</h3>
+        <p>
+          Op de lange termijn wil ik meewerken aan technologie die niet alleen slim is, maar ook echt waarde toevoegt: veiliger, duurzamer en beter afgestemd op de toekomst. Ik wil bijdragen aan oplossingen die impact hebben en aansluiten bij de uitdagingen van morgen.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Wat ik nog wil leren</div>
+        <h3>Programmeren</h3>
+        <p>
+          Mijn doel is om een technische studie te volgen waarin ik mijn interesse in 
+          engineering, slimme systemen en innovatie verder kan verdiepen. Ik 
+          voel mij vooral aangetrokken tot richtingen waarin techniek direct wordt toegepast op vraagstukken rond mobiliteit, infrastructuur, ontwerp of digitale systemen.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Jason Meta</p>
+  </footer>
+
+  <script>
+    // Mobile hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

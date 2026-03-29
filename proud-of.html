@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trots Op — Jason Meta</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jason Meta</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="highschool.html">CV</a></li>
+      <li><a href="betawerelden.html">Bètawerelden</a></li>
+      <li class="nav-item">
+        <a href="projects.html" class="active">Projecten</a>
+        <ul class="dropdown">
+          <li><a href="project1.html">Schaakset</a></li>
+          <li><a href="project2.html">E-bike</a></li>
+          <li><a href="project3.html">Wijndomein</a></li>
+          <li><a href="project4.html">Wegen</a></li>
+        </ul>
+      </li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="personal-development.html">Ontwikkeling</a></li>
+      <li><a href="proud-of.html">Trots Op</a></li>
+    </ul>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+      <h1>Trots op</h1>
+      <p>Wat ik heb bereikt en wat me heeft gevormd tijdens mijn schooltijd.</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <!-- ── CONTENT ── -->
+    <section>
+      <h2>Waar ik trots op ben</h2>
+
+      <div class="card">
+        <p>
+          Waar ik het meest trots op ben in mijn schooltijd, is mijn <strong>doorzettingsvermogen</strong>.
+          Ik zit in vwo 6 met het profiel Natuur &amp; Techniek, wat niet altijd makkelijk is en veel van je vraagt.
+          Toch ben ik iemand die niet snel opgeeft. Ook als iets moeilijk is of niet meteen lukt, blijf ik doorgaan
+          totdat ik het begrijp of het beter gaat.
+        </p>
+      </div>
+
+      <div class="card">
+        <p>
+          Daarnaast ben ik trots op de <strong>ontwikkeling</strong> die ik heb doorgemaakt. In het begin vond ik het
+          soms lastig om rustig te blijven in stressvolle situaties, bijvoorbeeld tijdens toetsen of wanneer de druk
+          hoog was. Inmiddels merk ik dat ik daar veel beter mee om kan gaan. Ik blijf rustiger en kan daardoor beter
+          nadenken en mijn werk goed uitvoeren.
+        </p>
+      </div>
+
+      <div class="card">
+        <p>
+          Wat dit over mij zegt, is dat ik een <strong>doorzetter</strong> ben die blijft werken aan zichzelf.
+          Ik geef niet snel op en probeer altijd vooruit te blijven gaan, ook als het tegenzit. Dat is iets wat ik
+          in de toekomst zeker wil blijven gebruiken en verder wil ontwikkelen.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Jason Meta</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>
